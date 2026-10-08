@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://7pqkguso205j"]
+
+[ext_resource type="Script" uid="uid://bw56o01kv5oxy" path="res://main_scene.gd" id="1_m6qln"]
+[ext_resource type="Texture2D" uid="uid://bgbq7iotdgtis" path="res://Assets/Tempimage.png" id="2_asdu3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dn1e"]
+atlas = ExtResource("2_asdu3")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m4l3"]
+atlas = ExtResource("2_asdu3")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt8pf"]
+atlas = ExtResource("2_asdu3")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn5ab"]
+atlas = ExtResource("2_asdu3")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02a7w"]
+atlas = ExtResource("2_asdu3")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfo2h"]
+atlas = ExtResource("2_asdu3")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlvec"]
+atlas = ExtResource("2_asdu3")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krncb"]
+atlas = ExtResource("2_asdu3")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mm4rp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dn1e")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m4l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt8pf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn5ab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02a7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfo2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlvec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krncb")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=467343544]
+script = ExtResource("1_m6qln")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=534141848]
+texture_filter = 1
+position = Vector2(75, 75)
+scale = Vector2(3.0937498, 3.0937498)
+sprite_frames = SubResource("SpriteFrames_mm4rp")
+animation = &"Idle"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=26372893]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1819710958]
