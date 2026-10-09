@@ -1,6 +1,6 @@
 extends Node2D
 
-var speed = 300
+var speed = 150
 var direction = Vector2(1,0)
 var screen_size = Vector2()
 var window_size = Vector2(200,200)
@@ -23,12 +23,11 @@ func _physics_process(delta: float) -> void:
 		var new_win_pos = mouse_pos - drag_offset
 		DisplayServer.window_set_position(Vector2i(new_win_pos))
 		return
-
 	if is_idling:
 		idle_timer -= delta
 		if idle_timer <= 0:
 			is_idling = false
-			speed = 300
+			speed = 150
 			animated_sprite.play("Walking")
 		return
 	var window_position = Vector2(DisplayServer.window_get_position())
@@ -49,11 +48,9 @@ func maybe_idle():
 	if randf() < 0.3:
 		is_idling  = true
 		idle_timer = randf_range(1.0, 3.0)
-		var r = randi() % 3
-		if r == 0:
-			animated_sprite.play("Idle")
-			speed = 0
-			
+		animated_sprite.play("Idle")
+		speed = 0
+
 func _on_area_input(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
